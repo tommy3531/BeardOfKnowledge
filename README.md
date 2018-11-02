@@ -1,3 +1,3 @@
 # Beard Of Knowledge
 
-[Url](https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiJqZv11rTeAhUmxoMKHf1LC9QQjRx6BAgBEAU&url=https%3A%2F%2Fbigdatabeard.com%2F&psig=AOvVaw0zrUTam8OREtjpneamY1AZ&ust=1541212694874378)
+[Url](https://i0.wp.com/bigdatabeard.com/wp-content/uploads/2017/06/image001.png?fit=304%2C500&ssl=1)

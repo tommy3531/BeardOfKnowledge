@@ -6,8 +6,8 @@ import(
 )
 
 func HomePage(w http.ResponseWriter, r *http.Request) {
-	test := "Home Page"
-	t, _ := template.ParseFiles("template/home.html")
-	t.Execute(w, test)
+	// test := "Home Page"
+	t, _ := template.ParseFiles("template/site.html")
+	t.ExecuteTemplate(w, "site", "")
 	
 }

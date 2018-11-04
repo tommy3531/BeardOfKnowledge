@@ -3,15 +3,16 @@ package propublica
 import (
 	"fmt"
 	"net/http"
-	"html/template"
+	// "html/template"
+	"github.com/gorilla/mux"
 )
 
 func GetSenatorDetails(w http.ResponseWriter, r *http.Request) {
-	// Need Legislator ID
-	fmt.Println("Get Senator Details: Need leg_id")
-	title := "Contact Page"
-	t, _ := template.ParseFiles("template/showSenatorDetails.html")
-	t.Execute(w, title)
+	params := mux.Vars(r)
+	id := params["id"]
+	fmt.Println(id)
+	// t, _ := template.ParseFiles("template/showSenatorDetails.html")
+	// t.Execute(w, "")
 }
 
 // func GetHouseDetails() {

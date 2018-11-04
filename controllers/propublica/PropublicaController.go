@@ -1,4 +1,4 @@
-package controllers
+package propublica
 
 import (
 	"net/http"
@@ -6,10 +6,11 @@ import (
 	"encoding/json"
 	"log"
 	"fmt"
+	"html/template"
 	propublicaModel "github.com/tommarler/Beard_Of_knowledge/models/propublica"
 )
 
-func GetCurrentSenators() {
+func GetCurrentSenators(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println("Get ALL Senators")
 	client := &http.Client{}
@@ -28,38 +29,40 @@ func GetCurrentSenators() {
 	}
 
 	fmt.Println(responseObject)
+	t, _ := template.ParseFiles("template/showAllSenators.html")
+	t.Execute(w, responseObject)
 }
 
-func GetCurrentHouseMembers() {
+// func GetCurrentHouseMembers((w http.ResponseWriter, r *http.Request) {
 
-	// 102-115
-	fmt.Println("Get Current House Memebers: (102-115)")
-}
+// 	// 102-115
+// 	fmt.Println("Get Current House Memebers: (102-115)")
+// }
 
-func GetNewMembers() {
+// func GetNewMembers((w http.ResponseWriter, r *http.Request) {
 
-	fmt.Println("Display New Members of Congress")
-}
+// 	fmt.Println("Display New Members of Congress")
+// }
 
-func GetCurrentMemberByState() {
+// func GetCurrentMemberByState((w http.ResponseWriter, r *http.Request) {
 
-	fmt.Println("Get Member by State: Need Two Digit State")
-}
+// 	fmt.Println("Get Member by State: Need Two Digit State")
+// }
 
-func GetMembersLeavingOffice() {
-	fmt.Println("Get Member Leaving Office: ")
-}
+// func GetMembersLeavingOffice((w http.ResponseWriter, r *http.Request) {
+// 	fmt.Println("Get Member Leaving Office: ")
+// }
 
-func GetMemberExpenses() {
+// func GetMemberExpenses((w http.ResponseWriter, r *http.Request) {
 
-	// leg_id, year, quarter
-	fmt.Println("Get Member Expenses by year and quarter ")
-}
+// 	// leg_id, year, quarter
+// 	fmt.Println("Get Member Expenses by year and quarter ")
+// }
 
-func GetMemberExpensesByCategory() {
+// func GetMemberExpensesByCategory((w http.ResponseWriter, r *http.Request) {
 	
-	// leg_id
-	// Category -> travel, personnel, rent-utilities, other-services, supplies, franked-mail, printing, equipment, total
-	fmt.Println("Get Expenses By Category")
-}
+// 	// leg_id
+// 	// Category -> travel, personnel, rent-utilities, other-services, supplies, franked-mail, printing, equipment, total
+// 	fmt.Println("Get Expenses By Category")
+// }
 

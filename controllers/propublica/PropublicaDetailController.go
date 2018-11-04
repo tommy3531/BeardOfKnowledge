@@ -1,4 +1,4 @@
-package controllers
+package propublica
 
 import (
 	"fmt"

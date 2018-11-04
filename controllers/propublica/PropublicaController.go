@@ -5,14 +5,12 @@ import (
 	"os"
 	"encoding/json"
 	"log"
-	"fmt"
 	"html/template"
 	propublicaModel "github.com/tommarler/Beard_Of_knowledge/models/propublica"
 )
 
 func GetCurrentSenators(w http.ResponseWriter, r *http.Request) {
 
-	fmt.Println("Get ALL Senators")
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", "https://api.propublica.org/congress/v1/115/senate/members.json", nil)
 	if err != nil {
@@ -28,7 +26,6 @@ func GetCurrentSenators(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 
-	fmt.Println(responseObject)
 	t, _ := template.ParseFiles("template/showAllSenators.html")
 	t.Execute(w, responseObject)
 }

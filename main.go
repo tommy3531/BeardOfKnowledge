@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"log"
 	"fmt"
-	"github.com/tommarler/Beard_Of_knowledge/routes/page"
+	"github.com/tommarler/Beard_Of_knowledge/controllers/page"
 	"github.com/tommarler/Beard_Of_knowledge/controllers/propublica"
 )
 
@@ -13,6 +13,7 @@ func main() {
 	http.HandleFunc("/home", page.HomePage)
 	http.HandleFunc("/contact", page.ContactPage)
 	http.HandleFunc("/propublica/senators", propublica.GetCurrentSenators)
+	http.HandleFunc("/propublica/details", propublica.GetSenatorDetails)
 	// http.HandleFunc("/propublica/house", propublica.GetCurrentHouseMembers)
 	// http.HandleFunc("/propublica/newMembers", propublica.GetNewMembers)
 	log.Fatal(http.ListenAndServe(":8080", nil))

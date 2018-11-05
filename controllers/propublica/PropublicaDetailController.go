@@ -12,7 +12,7 @@ func GetSenatorDetails(w http.ResponseWriter, r *http.Request) {
 	id := params["id"]
 	fmt.Println(id)
 	t, _ := template.ParseFiles("template/showSenatorDetails.html")
-	t.Execute(w, "")
+	t.Execute(w, id)
 }
 
 // func GetHouseDetails() {

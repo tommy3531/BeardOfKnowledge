@@ -8,6 +8,8 @@ import (
 	"encoding/json"
 	"log"
 	"github.com/gorilla/mux"
+	// "fmt"
+	// "io/ioutil"
 	propublicaModel "github.com/tommarler/Beard_Of_knowledge/models/propublicastruct"
 
 )
@@ -33,16 +35,16 @@ func GetSenatorDetails(w http.ResponseWriter, r *http.Request) {
 	// if resp.StatusCode == http.StatusOK {
 	// 	bodyBytes, _ := ioutil.ReadAll(resp.Body)
 	// 	bodyString := string(bodyBytes)
-	// 	fmt.Println(bodyString)
+	// 	// fmt.Println(bodyString)
 	// }
 
-	// var responseObject propublicaModel.Politican
-	// if err := json.NewDecoder(resp.Body).Decode(&responseObject); err != nil {
-	// 	log.Println(err)
-	// }
+	var responseObject propublicaModel.PoliticanDetailRoot
+	if err := json.NewDecoder(resp.Body).Decode(&responseObject); err != nil {
+		log.Println(err)
+	}
 
 	t, _ := template.ParseFiles("template/showSenatorDetails.html")
-	t.Execute(w, "")
+	t.Execute(w, responseObject)
 }
 
 func GetCurrentSenators(w http.ResponseWriter, r *http.Request) {

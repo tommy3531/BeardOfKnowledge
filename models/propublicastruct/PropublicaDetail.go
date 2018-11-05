@@ -1,168 +1,89 @@
 package propublicastruct
 
 
+type PoliticanDetailRoot struct {
+	Status string `json:"status"`
+	Copyright string `json:"copyright"`
+	Results []PoliticanDetailResult `json:"results"`
+}
 
-/*
-"status": "OK",
-"copyright": "Copyright (c) 2018 Pro Publica Inc. All Rights Reserved.",
-"results": [{
-	"member_id": "K000388",
+type PoliticanDetailResult struct {
+	MemberID string `json:"member_id"`
+	FirstName string `json:"first_name"`
+	MiddleName string `json:"middle_name"`
+	LastName string `json:"last_name"`
+	Suffix string `json:"suffix"`
+	DateOfBirth string `json:"date_of_birth"`
+	Gender string `json:"gender"`
+	Url string `json:"url"`
+	TimeTopicsURL string `json:"times_topics_url"`
+	TimesTag string `json:"times_tag"`
+	GovTrackID string `json:"govtrack_id"`
+	CspanID string `json:"cspan_id"`
+	VotesmartID string `json:"votesmart_id"`
+	IcpsrID string `json:"icpsr_id"`
+	TwitterAccount string `json:"twitter_account"`
+	FacebookAccount string `json:"facebook_account"`
+	YoutubeAccount string `json:"youtube_account"`
+	CrpID string `json:"crp_id"`
+	GoogleEntityID string `json:"google_entity_id"`
+	RssUrl string `json:"rss_url"`
+	InOffice bool `json:"in_office"`
+	CurrentParty string `json:"current_party"`
+	MostRecentVote string `json:"most_recent_vote"`
+	LastUpdated string `json:"current_party"`
+	Roles []PoliticanDetailRoles `json:"roles"` 
+}
 
-	"first_name": "Trent",
-	"middle_name": "",
-	"last_name": "Kelly",
-	"suffix": null,
-	"date_of_birth": "1966-03-01",
-	"gender": "M",
-	"url": "https://trentkelly.house.gov",
-	"times_topics_url": "",
-	"times_tag": "",
-	"govtrack_id": "412673",
-	"cspan_id": "97322",
-	"votesmart_id": "156389",
-	"icpsr_id": "21561",
-	"twitter_account": "reptrentkelly",
-	"facebook_account": "reptrentkelly",
-	"youtube_account": null,
-	"crp_id": "N00037003",
-	"google_entity_id": "/m/013b9qgh",
-	"rss_url": null,
-	"in_office": true,
-	"current_party": "R",
-	"most_recent_vote": "2018-06-14",
-	"last_updated": "2018-06-14 17:01:27 -0400",
-	"roles": [{
-			"congress": "115",
-			"chamber": "House",
-			"title": "Representative",
-			"short_title": "Rep.",
-			"state": "MS",
-			"party": "R",
-			"leadership_role": null,
-			"fec_candidate_id": "H6MS01131",
-			"seniority": "4",
-			"district": "1",
-			"at_large": false,
-			"ocd_id": "ocd-division/country:us/state:ms/cd:1",
-			"start_date": "2017-01-03",
-			"end_date": "2019-01-03",
-			"office": "1721 Longworth House Office Building",
-			"phone": "202-225-4306",
-			"fax": null,
-			"contact_form": null,
-			"bills_sponsored": 7,
-			"bills_cosponsored": 146,
-			"missed_votes_pct": 0.51,
-			"votes_with_party_pct": 96.92,
-			"committees": [{
-					"name": "Committee on Agriculture",
-					"code": "HSAG",
-					"api_uri": "https://api.propublica.org/congress/v1/115/house/committees/HSAG.json",
-					"side": "majority",
-					"title": "Member",
-					"rank_in_party": 20,
-					"begin_date": "",
-					"end_date": "2019-01-03"
-				},
-				{
-					"name": "Committee on Armed Services",
-					"code": "HSAS",
-					"api_uri": "https://api.propublica.org/congress/v1/115/house/committees/HSAS.json",
-					"side": "majority",
-					"title": "Member",
-					"rank_in_party": 28,
-					"begin_date": "",
-					"end_date": "2019-01-03"
-				},
-				{
-					"name": "Committee on Small Business",
-					"code": "HSSM",
-					"api_uri": "https://api.propublica.org/congress/v1/115/house/committees/HSSM.json",
-					"side": "majority",
-					"title": "Member",
-					"rank_in_party": 7,
-					"begin_date": "",
-					"end_date": "2019-01-03"
-				}
-			],
-			"subcommittees": [{
-					"name": "Conservation and Forestry",
-					"code": "HSAG15",
-					"parent_committee_id": "HSAG",
-					"api_uri": "https://api.propublica.org/congress/v1/115/house/committees/HSAG/subcommittees/HSAG15.json",
-					"side": "majority",
-					"title": "Member",
-					"rank_in_party": 8,
-					"begin_date": "",
-					"end_date": "2019-01-03"
-				},
-				{
-					"name": "Livestock and Foreign Agriculture",
-					"code": "HSAG29",
-					"parent_committee_id": "HSAG",
-					"api_uri": "https://api.propublica.org/congress/v1/115/house/committees/HSAG/subcommittees/HSAG29.json",
-					"side": "majority",
-					"title": "Member",
-					"rank_in_party": 7,
-					"begin_date": "",
-					"end_date": "2019-01-03"
-				},
-				{
-					"name": "Military Personnel",
-					"code": "HSAS02",
-					"parent_committee_id": "HSAS",
-					"api_uri": "https://api.propublica.org/congress/v1/115/house/committees/HSAS/subcommittees/HSAS02.json",
-					"side": "majority",
-					"title": "Member",
-					"rank_in_party": 8,
-					"begin_date": "",
-					"end_date": "2019-01-03"
-				},
-				{
-					"name": "Readiness",
-					"code": "HSAS03",
-					"parent_committee_id": "HSAS",
-					"api_uri": "https://api.propublica.org/congress/v1/115/house/committees/HSAS/subcommittees/HSAS03.json",
-					"side": "majority",
-					"title": "Member",
-					"rank_in_party": 10,
-					"begin_date": "",
-					"end_date": "2019-01-03"
-				},
-				{
-					"name": "Tactical Air and Land Forces",
-					"code": "HSAS25",
-					"parent_committee_id": "HSAS",
-					"api_uri": "https://api.propublica.org/congress/v1/115/house/committees/HSAS/subcommittees/HSAS25.json",
-					"side": "majority",
-					"title": "Member",
-					"rank_in_party": 7,
-					"begin_date": "",
-					"end_date": "2019-01-03"
-				},
-				{
-					"name": "Investigations, Oversight and Regulations",
-					"code": "HSSM24",
-					"parent_committee_id": "HSSM",
-					"api_uri": "https://api.propublica.org/congress/v1/115/house/committees/HSSM/subcommittees/HSSM24.json",
-					"side": "majority",
-					"title": "Chair",
-					"rank_in_party": 1,
-					"begin_date": "",
-					"end_date": "2019-01-03"
-				},
-				{
-					"name": "Economic Growth, Tax and Capital Access",
-					"code": "HSSM27",
-					"parent_committee_id": "HSSM",
-					"api_uri": "https://api.propublica.org/congress/v1/115/house/committees/HSSM/subcommittees/HSSM27.json",
-					"side": "majority",
-					"title": "Member",
-					"rank_in_party": 3,
-					"begin_date": "",
-					"end_date": "2019-01-03"
-				}
-			]
-		},
-		*/
+type PoliticanDetailRoles struct {
+	Congress string `json:"congress"`
+	Chamber string `json:"chamber"`
+	Title string `json:"title"`
+	ShortTitle string `json:"short_title"`
+	State string `json:"state"`
+	Party string `json:"party"`
+	LeadershipRole string `json:leadership_role`
+	FecID string `json:"fec_candidate_id"`
+	Seniority string `json:"seniority"`
+	District string `json:"district"`
+	AtLarge bool `json:"at_large"`
+	OcdID string `json:"ocd_id"`
+	StartDate string `json:"start_date"`
+	EndDate string `json:"end_date"`
+	Office string `json:"office"`
+	Phone string `json:"phone"`
+	Fax string `json:"fax"`
+	ContactForm string `json:"contact_form"`
+	BillsSponsored int `json:"bills_sponsored"`
+	BillsCosponsored int `json:"bills_cosponsored"`
+	MissedVotesPCT float64 `json:"missed_votes_pct"`
+	VotesWithPartyPCT float64 `json:"votes_with_party_pct"`
+	Committee []PoliticanCommittees `json:"committees"`
+	Subcommittee []PoliticanSubCommittees `json:"subcommittees"`
+}
+
+type PoliticanCommittees struct {
+	Name string `json:"name"`
+	Code string `json:"code"`
+	ApiURL string `json:"api_uri"`
+	Side string `json:"side"`
+	Title string `json:"title"`
+	RankInParty int `json:"rank_in_party"`
+	BeginDate string `json:"begin_date"`
+	EndDate string `json:"end_date"`
+}
+
+type PoliticanSubCommittees struct {
+	Name string `json:"name"`
+	Code string `json:"code"`
+	ParentCommitteeID string `json:"parent_committee_id"`
+	ApiURL string `json:"api_uri"`
+	Side string `json:"side"`
+	Title string `json:"title"`
+	RankInParty int `json:"rank_in_party"`
+	BeginDate string `json:"begin_date"`
+	EndDate string `json:"end_date"`
+
+}
+		
 	

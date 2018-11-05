@@ -19,8 +19,6 @@ func main() {
 	// http.HandleFunc("/propublica/house", propublica.GetCurrentHouseMembers)
 	// http.HandleFunc("/propublica/newMembers", propublica.GetNewMembers)
 	log.Fatal(http.ListenAndServe(":8080", r))
-
-	
 }
 
 

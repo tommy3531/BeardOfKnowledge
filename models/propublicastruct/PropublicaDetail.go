@@ -58,11 +58,11 @@ type PoliticanDetailRoles struct {
 	BillsCosponsored int `json:"bills_cosponsored"`
 	MissedVotesPCT float64 `json:"missed_votes_pct"`
 	VotesWithPartyPCT float64 `json:"votes_with_party_pct"`
-	Committee []PoliticanCommittees `json:"committees"`
-	Subcommittee []PoliticanSubCommittees `json:"subcommittees"`
+	Committee []PoliticanDetailCommittees `json:"committees"`
+	Subcommittee []PoliticanDetailSubCommittees `json:"subcommittees"`
 }
 
-type PoliticanCommittees struct {
+type PoliticanDetailCommittees struct {
 	Name string `json:"name"`
 	Code string `json:"code"`
 	ApiURL string `json:"api_uri"`
@@ -73,7 +73,7 @@ type PoliticanCommittees struct {
 	EndDate string `json:"end_date"`
 }
 
-type PoliticanSubCommittees struct {
+type PoliticanDetailSubCommittees struct {
 	Name string `json:"name"`
 	Code string `json:"code"`
 	ParentCommitteeID string `json:"parent_committee_id"`
@@ -83,7 +83,6 @@ type PoliticanSubCommittees struct {
 	RankInParty int `json:"rank_in_party"`
 	BeginDate string `json:"begin_date"`
 	EndDate string `json:"end_date"`
-
 }
 		
 	

@@ -1,26 +1,28 @@
 package propublicastruct
 
+type PoliticanNewRoot struct {
+  Status string `json:"status"`
+  Copyright string `json:"copyright"`
+  Results []PoliticanNewResults `json:"results"`
+}
 
-/*
-{
-    "status":"OK",
-    "copyright":" Copyright (c) 2017 Pro Publica Inc. All Rights Reserved.",
-    "results":[
-       {
-          "num_results": "20",
-          "offset": "0",
-          "members": [
-               {
-                  "id": "C001114",
-                  "api_uri":"https://api.propublica.org/congress/v1/members/C001114.json",
-                  "first_name": "John",
-                  "middle_name": null,
-                  "last_name": "Curtis",
-                  "suffix": null,
-                  "party": "R",
-                  "chamber": "House",
-                  "state": "UT",
-                  "district": "3",
-                  "start_date": "2017-11-13"
-                },
-*/
+type PoliticanNewResults struct {
+  NumResults string `json:"num_results"`
+  Offset string `json:"offset"`
+  Members []PoliticanNewMembers `json:"members"`
+
+}
+
+type PoliticanNewMembers struct {
+  ID string `json:"id"`
+  APIURI string `json:"api_uri"`
+  FirstName string `json:"first_name"`
+  MiddleName string `json:"middle_name"`
+  LastName string `json:"last_name"`
+  Suffix string `json:"suffix"`
+  Party string `json:"party"`
+  Chamber string `json:"chamber"`
+  State string `json:"state"`
+  District string `json:"district"`
+  StartDate string `json:"start_date"`
+}

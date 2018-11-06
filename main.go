@@ -10,15 +10,16 @@ import (
 
 func main() {
 	r := mux.NewRouter()
-	propublicaNew := mux.NewRouter()
+	// propublicaNew := mux.NewRouter()
 	r.HandleFunc("/home", page.HomePage).Methods("GET")
 	r.HandleFunc("/contact", page.ContactPage).Methods("GET")
 
-	propublicaNew.HandleFunc("/propublica/senators", propublica.GetCurrentSenators).Methods("GET")
-	propublicaNew.HandleFunc("/propublica/new", propublica.GetNewMembers).Methods("GET")
-	propublicaNew.HandleFunc("/propublica/{id}", propublica.GetSenatorDetails).Methods("GET")
-	// http.HandleFunc("/propublica/house", propublica.GetCurrentHouseMembers)
-	log.Fatal(http.ListenAndServe(":8080", propublicaNew))
+	propublicaRouter := r.PathPrefix("/propublica").Subrouter()
+	propublicaRouter.Path("/senators").HandlerFunc(propublica.GetCurrentSenators).Methods("GET")
+	propublicaRouter.Path("/new").HandlerFunc(propublica.GetNewMembers).Methods("GET")
+	propublicaRouter.Path("/{id}").HandlerFunc(propublica.GetSenatorDetails).Methods("GET")
+	// propublicaRouter.Path("/propublica/house").HandlerFunc(propublica.GetCurrentHouseMembers).Methods("GET")
+	log.Fatal(http.ListenAndServe(":8080", r))
 }
 
 

@@ -1,13 +1,11 @@
 package main
 
 import (
-	// "net/http"
-	// "log"
 	"github.com/tommarler/Beard_Of_knowledge/system/app"
 	"flag"
-	// "github.com/gorilla/mux"
-	// "github.com/tommarler/Beard_Of_knowledge/system/app/controllers/page"
-	// "github.com/tommarler/Beard_Of_knowledge/system/app/controllers/propublica"
+	"github.com/joho/godotenv"
+    "log"
+    "os"
 )
 
 var port string
@@ -17,6 +15,16 @@ func init() {
 	flag.StringVar(&port, "port", "8000", "Assigning the port that the server should listen on.")
 
 	flag.Parse()
+
+	err := godotenv.Load("config.ini")
+	if err != nil {
+	  log.Fatal("Error loading .env file")
+	}
+
+	envPort := os.Getenv("PORT")
+	if len(envPort) > 0 {
+		port = envPort
+	}
 }
 
 
@@ -26,17 +34,7 @@ func main() {
 
 	s.Init(port)
 	s.Start()
-	// r := mux.NewRouter()
-	// // propublicaNew := mux.NewRouter()
-	// r.HandleFunc("/home", page.HomePage).Methods("GET")
-	// r.HandleFunc("/contact", page.ContactPage).Methods("GET")
 
-	// propublicaRouter := r.PathPrefix("/propublica").Subrouter()
-	// propublicaRouter.Path("/senators").HandlerFunc(propublica.GetCurrentSenators).Methods("GET")
-	// propublicaRouter.Path("/new").HandlerFunc(propublica.GetNewMembers).Methods("GET")
-	// propublicaRouter.Path("/{id}").HandlerFunc(propublica.GetSenatorDetails).Methods("GET")
-	// // propublicaRouter.Path("/propublica/house").HandlerFunc(propublica.GetCurrentHouseMembers).Methods("GET")
-	// log.Fatal(http.ListenAndServe(":8080", r))
 }
 
 

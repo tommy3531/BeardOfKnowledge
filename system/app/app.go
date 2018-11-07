@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 	// "github.com/gorilla/mux"
-	"github.com/tommarler/Beard_Of_knowledge/system/app/controllers/page"
+	// "github.com/tommarler/Beard_Of_knowledge/system/app/controllers/page"
 	"github.com/tommarler/Beard_Of_knowledge/system/app/router"
 
 )
@@ -26,8 +26,9 @@ func (s *Server) Start() {
 	log.Println("Starting server on port!" + s.port)
 
 	r := router.NewRouter() 
+	r.Init()
 	// // propublicaNew := mux.NewRouter()
-	r.Router.HandleFunc("/home", page.HomePage).Methods("GET")
+	// r.Router.HandleFunc("/home", page.HomePage).Methods("GET")
 	// r.HandleFunc("/contact", page.ContactPage).Methods("GET")
 
 	// propublicaRouter := r.PathPrefix("/propublica").Subrouter()

@@ -10,7 +10,7 @@ type Route struct {
 	Name 		string
 	Method 		string
 	Pattern 	string
-	HandleFunc 	http.HandlerFunc
+	HandlerFunc 	http.HandlerFunc
 }
 
 type SubRoutePackage struct {

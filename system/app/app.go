@@ -6,7 +6,6 @@ import (
 	// "github.com/gorilla/mux"
 	// "github.com/tommarler/Beard_Of_knowledge/system/app/controllers/page"
 	"github.com/tommarler/Beard_Of_knowledge/system/app/router"
-
 )
 
 type Server struct {

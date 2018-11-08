@@ -2,10 +2,6 @@ package router
 
 import (
 	"github.com/gorilla/mux"
-
-	// "github.com/tommarler/Beard_Of_knowledge/system/app/controllers/page"
-	// "github.com/tommarler/Beard_Of_knowledge/system/app/controllers/propublica"
-
 )
 
 type Router struct {
@@ -23,7 +19,6 @@ func (r *Router) Init() {
 			Name(route.Name).
 			Handler(route.HandlerFunc)
 	}
-
 }
 
 func NewRouter() (r Router) {
